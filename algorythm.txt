@@ -1,0 +1,29 @@
+VAR
+ a:STRING;
+ nb_mot:INTEGER:=1;
+ nb_voy:INTEGER:=0;
+ l:INTEGER;
+ b:STRING:=['a','e','i','o','u','y'];
+BEGIN
+REPEAT
+    write("entrer une phrase qui se termine par un point");
+    read (a);
+UNTIL (a[l-1]=".")
+ l:=STRING.length(a);
+FOR i FROM 0 TO l-1 STEP 1  DO
+    IF (a[i]=" ") THEN
+        nb_mot:=nb_mot+1;
+    END_IF
+END_FOR
+FOR i  FROM 0 TO l-1 STEP 1 DO
+    FOR j FROM 0 TO STRING.length(b) STEP 1  DO
+        IF (lowercase(a[i])=b[j]) THEN
+        nb_voy:=nb-voy+1;
+        END_IF
+    END_FOR
+END_FOR
+  write("nombre de mot",nb_mot);
+  write("longueur de la phrase",l);
+  write("nombre de voyelle";nb_voy);
+
+END
